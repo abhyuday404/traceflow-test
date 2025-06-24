@@ -22,10 +22,7 @@ function processInputs(inputArr) {
   
 }
 ---
-{
-    result.map((num:number, i:number) => 
-        <ArrayBox key={i} index={i} value={num} />
-    )}
+
 <html>
 <body>
   <form method="POST">
@@ -42,6 +39,10 @@ function processInputs(inputArr) {
         </button>
     </div>
   </form>
+  {
+    result.map((num:number, i:number) => 
+        <ArrayBox key={i} index={i} value={num} />
+)}
 </body>
 </html>
 
