@@ -1,0 +1,13 @@
+---
+const { index, value } = Astro.props;
+import './src/styles/global.css'
+---
+<div class="outer-container">
+    <div class="label text-white text-center font-bold">
+        i={index}
+    </div>
+    <div id={"box-" + index} class="box w-[3rem] h-[3rem] bg-[#1f2937] text-white flex items-center justify-center rounded-lg font-bold">
+        {value}
+    </div>
+</div>
+

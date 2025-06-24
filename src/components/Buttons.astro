@@ -1,0 +1,39 @@
+---
+import Visualisation from './Visualisation.astro';
+---
+
+<div class="button-group mt-10">
+  <button data-alg="bubble">Bubble Sort</button>
+  <button data-alg="linear">Linear Search</button>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('button[data-alg]').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const alg = (e.currentTarget as HTMLElement).dataset.alg;
+        if (alg) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('alg', alg);
+          window.location.href = url.toString();
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import Buttons from '../components/Buttons.astro';
+import Visualisation from '../components/Visualisation.astro';
+import ArrayBox from '../components/ArrayBox.astro';
+import '../styles/global.css';
+let result = [1,2,3,4,5];
+let error = null;
+
+if (Astro.request.method === 'POST') {
+  try {
+    const formData = await Astro.request.formData();
+    const input1 = formData.get('input1');
+    result = processInputs(input1);
+  } catch (e) {
+    error = 'Processing failed';
+  }
+}
+
+function processInputs(inputArr) {
+  // All your server logic here
+  return inputArr.split(",").map((x) => parseInt(x.trim())).filter((x) => !isNaN(x));
+  
+}
+---
+{
+    result.map((num:number, i:number) => 
+        <ArrayBox key={i} index={i} value={num} />
+    )}
+<html>
+<body>
+  <form method="POST">
+    <div class="flex justify-center gap-2 mt-4">
+        <input
+            name="input1"
+            type="text"
+            placeholder="Enter numbers"
+            class="border p-2 rounded text-white"
+            required
+        />
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+            Visualize
+        </button>
+    </div>
+  </form>
+</body>
+</html>
+
