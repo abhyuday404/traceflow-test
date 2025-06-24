@@ -3,6 +3,7 @@ import Buttons from '../components/Buttons.astro';
 import Visualisation from '../components/Visualisation.astro';
 import ArrayBox from '../components/ArrayBox.astro';
 import '../styles/global.css';
+import BinarySearch from './BinarySearch.astro';
 let result = [1,2,3,4,5];
 let error = null;
 
@@ -39,10 +40,8 @@ function processInputs(inputArr) {
         </button>
     </div>
   </form>
-  {
-    result.map((num:number, i:number) => 
-        <ArrayBox key={i} index={i} value={num} />
-)}
+  <Buttons array={result}/>
+  <Visualisation array={result} />
 </body>
 </html>
 

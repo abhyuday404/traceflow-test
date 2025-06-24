@@ -1,5 +1,13 @@
 ---
+const { elements } = Astro.props;
+import ArrayBox from './ArrayBox.astro';
 ---
-<div class="test">
-    test
-</div>
+<div class="div text-white">BINARY SEARCH</div>
+{
+elements.length > 0 && (
+  <div class="flex justify-center gap-4 mt-8">
+    {
+      elements.map((num:number, i:number) => <ArrayBox id={i} value={num} />)
+    }
+  </div>
+)}
