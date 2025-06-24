@@ -4,9 +4,10 @@ const { array } = Astro.props;
 ---
 
 <div class="button-group mt-10">
-  <button data-alg="bubble">Bubble Sort</button>
+  <button data-alg="binary">Binary Search</button>
   <button data-alg="linear">Linear Search</button>
 </div>
+<Visualisation array={ array } />
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('button[data-alg]').forEach(button => {

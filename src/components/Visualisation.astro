@@ -6,7 +6,7 @@ let algorithm = Astro.url.searchParams.get('alg') ?? '';
 
 let Component;
 
-if (algorithm === 'bubble') {
+if (algorithm === 'binary') {
   Component = (await import('./BinarySearch.astro')).default;
 } else if (algorithm === 'linear') {
   Component = (await import('./LinearSearch.astro')).default;
